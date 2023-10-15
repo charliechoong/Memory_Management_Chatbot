@@ -1,0 +1,3 @@
+/Users/bytedance/Documents/Udacity/CppND-Memory-Management-Chatbot/build/CMakeFiles/membot.dir
+/Users/bytedance/Documents/Udacity/CppND-Memory-Management-Chatbot/build/CMakeFiles/edit_cache.dir
+/Users/bytedance/Documents/Udacity/CppND-Memory-Management-Chatbot/build/CMakeFiles/rebuild_cache.dir
