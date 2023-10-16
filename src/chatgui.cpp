@@ -120,14 +120,13 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
     // create chat logic instance
     //_chatLogic = new ChatLogic();
     _chatLogic = std::make_unique<ChatLogic>();
-    std::cout << "Address: " << &_chatLogic << std::endl;
 
     // pass pointer to chatbot dialog so answers can be displayed in GUI
     _chatLogic->SetPanelDialogHandle(this);
-std::cout << "DEBUG\n";
+
     // load answer graph from file
     _chatLogic->LoadAnswerGraphFromFile(dataPath + "src/answergraph.txt");
-std::cout << "DEBUG2\n";
+
     ////
     //// EOF STUDENT CODE
 }

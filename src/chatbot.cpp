@@ -44,6 +44,67 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+// Rule of 5 : copy, copy assignment, move, move assignment, destructor(already defined)
+
+// Copy constructor
+ChatBot::ChatBot(const ChatBot &other) 
+{
+    std::cout << "ChatBot Copy Constructor" << std::endl;
+    _image = new wxBitmap();
+    _image = other._image;
+    _currentNode = other._currentNode;
+    _rootNode = other._rootNode;
+    _chatLogic = other._chatLogic;
+}
+
+// Copy assignment operator
+ChatBot &ChatBot::operator=(const ChatBot &other) {
+    std::cout << "ChatBot Copy Assignment" << std::endl;
+    if (this == &other) {
+        return *this;
+    }
+    delete _image;
+    _image = new wxBitmap();
+    _image = other._image;                    
+    _currentNode = other._currentNode;
+    _rootNode = other._rootNode;
+    _chatLogic = other._chatLogic;
+    return *this;
+}
+
+// Move constructor
+ChatBot::ChatBot(ChatBot &&other) {
+    std::cout << "ChatBot Move Constructor" << std::endl;
+    _image = other._image;                    
+    _currentNode = other._currentNode;
+    _rootNode = other._rootNode;
+    _chatLogic = other._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+    other._image = nullptr;
+    other._currentNode = nullptr;
+    other._rootNode = nullptr;
+    other._chatLogic = nullptr;
+}
+
+// Move assignment
+ChatBot &ChatBot::operator=(ChatBot &&other) {
+    std::cout << "ChatBot Move Assignment" << std::endl;
+    if (this == &other) {
+        return *this;
+    }
+    delete _image;
+    _image = other._image;                    
+    _currentNode = other._currentNode;
+    _rootNode = other._rootNode;
+    _chatLogic = other._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+    other._image = nullptr;
+    other._currentNode = nullptr;
+    other._rootNode = nullptr;
+    other._chatLogic = nullptr;
+
+    return *this;
+}
 
 ////
 //// EOF STUDENT CODE
